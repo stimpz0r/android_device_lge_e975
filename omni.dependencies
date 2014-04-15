@@ -1,10 +1,10 @@
 [
  {
-   "repository": "android_device_lge_gproj-common",
+   "repository": "stimpz0r/android_device_lge_gproj-common",
    "target_path": "device/lge/gproj-common"
  },
  {
-   "repository": "android_kernel_lge_gproj",
+   "repository": "stimpz0r/android_kernel_lge_gproj",
    "target_path": "kernel/lge/gproj"
  }
 ]
