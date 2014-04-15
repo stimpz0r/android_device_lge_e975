@@ -21,9 +21,6 @@ TARGET_SPECIFIC_HEADER_PATH := device/lge/e975/include
 BOARD_KERNEL_CMDLINE := vmalloc=600M console=null lpj=67677 user_debug=31 msm_rtb.filter=0x0 ehci-hcd.park=3 coresight-etm.boot_enable=0 androidboot.hardware=geehrc
 TARGET_KERNEL_CONFIG := cyanogenmod_e975_defconfig
 
-BOARD_HAVE_BLUETOOTH_QCOM := true
-BLUETOOTH_HCI_USE_MCT := true
-
 TARGET_BOOTLOADER_BOARD_NAME := geehrc
 TARGET_BOOTLOADER_NAME=e975
 
@@ -38,7 +35,13 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB = device/lge/e975/fstab.geehrc
+TARGET_RECOVERY_FSTAB = device/lge/e975/root/fstab.geehrc
+
+# TWRP
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
 
 -include vendor/lge/e975/BoardConfigVendor.mk
 
@@ -66,8 +69,3 @@ BOARD_SEPOLICY_UNION := \
         system.te \
         ueventd.te \
         wpa.te
-
-## We need this for FM support
-TARGET_QCOM_AUDIO_VARIANT := caf
-
-BOARD_HARDWARE_CLASS += device/lge/e975/cmhw
